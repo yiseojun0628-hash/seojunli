@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이서준 | 게임 개발자를 꿈꾸는 도토리</title>
+<style>
+  :root {
+    --acorn-brown: #6b4226;
+    --acorn-cap: #8a5a34;
+    --acorn-light: #d9b98a;
+    --acorn-bg: #fbf3e6;
+    --forest-green: #3f6b3f;
+    --forest-dark: #2c4a2c;
+    --cream: #fffaf3;
+    --text-dark: #3a2c1e;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+    background: var(--acorn-bg);
+    color: var(--text-dark);
+    line-height: 1.7;
+  }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 250, 243, 0.92);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    border-bottom: 2px solid var(--acorn-light);
+  }
+
+  nav .logo {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--acorn-brown);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  nav a:hover {
+    color: var(--forest-green);
+  }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: radial-gradient(circle at top, #fffaf3 0%, #f3e3c9 60%, #e9d4ab 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .acorn-icon {
+    width: 140px;
+    height: auto;
+    animation: sway 3s ease-in-out infinite;
+    filter: drop-shadow(0 8px 10px rgba(107, 66, 38, 0.3));
+  }
+
+  .acorn-inline {
+    height: 1em;
+    width: auto;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 2px;
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-6deg) translateY(0); }
+    50% { transform: rotate(6deg) translateY(-10px); }
+  }
+
+  header.hero h1 {
+    font-size: 3rem;
+    margin-top: 20px;
+    color: var(--acorn-brown);
+    letter-spacing: 2px;
+  }
+
+  header.hero p.subtitle {
+    font-size: 1.3rem;
+    margin-top: 12px;
+    color: var(--forest-dark);
+    font-weight: 600;
+  }
+
+  header.hero p.tagline {
+    margin-top: 18px;
+    max-width: 600px;
+    font-size: 1.05rem;
+    color: #5a4630;
+  }
+
+  .scatter {
+    position: absolute;
+    font-size: 1.8rem;
+    opacity: 0.35;
+  }
+
+  .scatter-img {
+    position: absolute;
+    width: 40px;
+    height: auto;
+    opacity: 0.35;
+  }
+
+  /* ---------- Sections ---------- */
+  section {
+    padding: 90px 10%;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--acorn-brown);
+    margin-bottom: 12px;
+  }
+
+  .section-title span {
+    color: var(--forest-green);
+  }
+
+  .section-underline {
+    width: 70px;
+    height: 4px;
+    background: var(--forest-green);
+    border-radius: 4px;
+    margin: 0 auto 50px;
+  }
+
+  /* ---------- About ---------- */
+  .about-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .acorn-card {
+    width: 220px;
+    height: 220px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(107, 66, 38, 0.2);
+    border: 6px solid var(--acorn-light);
+    flex-shrink: 0;
+  }
+
+  .acorn-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-text {
+    max-width: 520px;
+  }
+
+  .about-text ul {
+    list-style: none;
+    margin-top: 20px;
+  }
+
+  .about-text li {
+    padding: 10px 0 10px 30px;
+    position: relative;
+    border-bottom: 1px dashed var(--acorn-light);
+  }
+
+  .about-text li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 16px;
+    height: 16px;
+    background: url('file:///C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop/5cde1059-de87-4cf2-b987-732c6ea9ccf3/images/1.png') center/cover;
+    border-radius: 2px;
+  }
+
+  .about-text li strong {
+    color: var(--forest-dark);
+  }
+
+  /* ---------- Games ---------- */
+  .games-section {
+    background: linear-gradient(180deg, var(--acorn-bg), #f1e2c3);
+  }
+
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .game-card {
+    background: var(--cream);
+    border-radius: 18px;
+    padding: 36px 28px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(107, 66, 38, 0.12);
+    border-top: 6px solid var(--forest-green);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 35px rgba(107, 66, 38, 0.22);
+  }
+
+  .game-icon {
+    font-size: 3.2rem;
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+
+  .game-card h3 {
+    color: var(--acorn-brown);
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+  }
+
+  .game-card p {
+    color: #5a4630;
+    font-size: 0.98rem;
+  }
+
+  .game-tag {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: var(--forest-green);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* ---------- Dream ---------- */
+  .dream-section {
+    text-align: center;
+  }
+
+  .dream-box {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--cream);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(63, 107, 63, 0.15);
+    border: 2px dashed var(--forest-green);
+  }
+
+  .dream-box .big-acorn {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .dream-box .big-acorn img {
+    width: 56px;
+    height: auto;
+  }
+
+  .dream-box p {
+    font-size: 1.15rem;
+    color: var(--text-dark);
+  }
+
+  .dream-box .highlight {
+    color: var(--forest-green);
+    font-weight: 700;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--forest-dark);
+    color: #e9dbc2;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  footer .footer-acorn img {
+    width: 42px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 600px) {
+    nav ul { gap: 16px; font-size: 0.85rem; }
+    header.hero h1 { font-size: 2.2rem; }
+    section { padding: 60px 6%; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><img src="file:///C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop/5cde1059-de87-4cf2-b987-732c6ea9ccf3/images/1.png" alt="도토리" class="acorn-inline"> 이서준</div>
+  <ul>
+    <li><a href="#about">소개</a></li>
+    <li><a href="#games">만든 게임</a></li>
+    <li><a href="#dream">꿈</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <img class="scatter-img" style="top:15%; left:10%; transform:rotate(-15deg);" src="file:///C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop/5cde1059-de87-4cf2-b987-732c6ea9ccf3/images/1.png" alt="도토리">
+  <span class="scatter" style="top:70%; left:15%;">🍂</span>
+  <img class="scatter-img" style="top:20%; right:12%; transform:rotate(20deg);" src="file:///C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop/5cde1059-de87-4cf2-b987-732c6ea9ccf3/images/1.png" alt="도토리">
+  <span class="scatter" style="top:65%; right:8%;">🍃</span>
+  <img class="acorn-icon" src="file:///C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop/5cde1059-de87-4cf2-b987-732c6ea9ccf3/images/1.png" alt="도토리">
+  <h1>이서준</h1>
+  <p class="subtitle">명덕고등학교 재학 · 게임 개발자를 꿈꾸는 도토리</p>
+  <p class="tagline">작은 도토리가 커다란 나무로 자라나듯, 하나씩 만들어가는 게임들로 꿈을 키워가고 있습니다.</p>
+</header>
+
+<section id="about">
+  <h2 class="section-title">저는 <span>이런 사람</span>입니다</h2>
+  <div class="section-underline"></div>
+  <div class="about-wrap">
+    <div class="acorn-card"><img src="file:///C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop/5cde1059-de87-4cf2-b987-732c6ea9ccf3/images/1.png" alt="도토리"></div>
+    <div class="about-text">
+      <ul>
+        <li><strong>이름</strong> · 이서준</li>
+        <li><strong>학교</strong> · 명덕고등학교 재학 중</li>
+        <li><strong>꿈</strong> · 게임 개발자</li>
+        <li><strong>상징물</strong> · 도토리 <img src="file:///C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop/5cde1059-de87-4cf2-b987-732c6ea9ccf3/images/1.png" alt="도토리" class="acorn-inline"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="games" class="games-section">
+  <h2 class="section-title">제가 <span>만든 게임</span></h2>
+  <div class="section-underline"></div>
+  <div class="games-grid">
+    <div class="game-card">
+      <div class="game-icon">🎡</div>
+      <h3>룰렛형 게임</h3>
+      <p>돌아가는 룰렛을 이용한 재미있는 방식의 게임입니다.</p>
+      <span class="game-tag">ROULETTE</span>
+    </div>
+    <div class="game-card">
+      <div class="game-icon">⚔️</div>
+      <h3>턴제 RPG 게임</h3>
+      <p>순서를 기다려 전략적으로 전투를 진행하는 RPG 게임입니다.</p>
+      <span class="game-tag">TURN-BASED RPG</span>
+    </div>
+    <div class="game-card">
+      <div class="game-icon">✦</div>
+      <h3>탄막 피하기 게임</h3>
+      <p>쏟아지는 탄막을 피하며 살아남아야 하는 게임입니다.</p>
+      <span class="game-tag">BULLET HELL</span>
+    </div>
+  </div>
+</section>
+
+<section id="dream" class="dream-section">
+  <h2 class="section-title">저의 <span>꿈</span></h2>
+  <div class="section-underline"></div>
+  <div class="dream-box">
+    <div class="big-acorn"><img src="file:///C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop/5cde1059-de87-4cf2-b987-732c6ea9ccf3/images/1.png" alt="도토리"><span>🌳</span></div>
+    <p>
+      도토리 하나가 땅에 떨어져 뿌리를 내리듯,<br>
+      저는 지금 <span class="highlight">게임 개발자</span>라는 꿈을 향해<br>
+      한 걸음씩 나아가고 있습니다.<br><br>
+      룰렛형 게임, 턴제 RPG 게임, 탄막 피하기 게임을 만들며<br>
+      계속해서 성장하는 <span class="highlight">이서준</span>이 되겠습니다.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-acorn"><img src="file:///C:/Users/USER/AppData/Local/Temp/claude/C--Users-USER-Desktop/5cde1059-de87-4cf2-b987-732c6ea9ccf3/images/1.png" alt="도토리"></div>
+  <p>이서준 · 명덕고등학교 · 게임 개발자를 꿈꾸는 도토리</p>
+</footer>
+
+</body>
+</html>
